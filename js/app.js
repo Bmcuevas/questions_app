@@ -50,22 +50,8 @@ const array = ["¿Que es lo que te gusta hacer para relajar?","¿Alguna cosa chi
 "¿Estás enamorado/a?","¿Que valor aportás a tu entorno?","¿Cómo descargás tus emociones?","Decí una frase o cita que te guste.",
 "¿Hay algo que sea importante para todos y no para vos?"]
 
-//HACER ALGO A PARTIR DE TOCAR UN BOTON
-
-//FORMA 1:
-// const verOferta = () =>{
-//     alert("Estas son las ofertas!")
-// }
-
-
-// // <button class="btn" onclick="verOferta()">Siguiente</button>
-
-
-// //FORMA 2: asignar una función desde js cuando se toca un botón. 
-// let btnOfertas = document.querySelector("#btn-question"); 
-// btnOfertas.onclick = () =>{
-//     alert("Estas son las ofertas!")
-// }
+var j = 0
+var previousQuestions = []
 
 let questionBtn = document.querySelector("#question-btn"); 
 questionBtn.onclick = (list) => { 
@@ -74,10 +60,27 @@ questionBtn.onclick = (list) => {
     list = array
     let i = Math.random()*list.length
     i = Math.floor(i)
-    console.log(i)
     question = list[i]
     questionBox.textContent = question
     questionNumber.textContent = `Pregunta número ${i}`
+    console.log(j);
+    aux_i = i;
+
+    if (j >=  0){
+        let divLastQuestion = document.querySelector("#last-question")
+        let html = questionLog(aux_i, j)
+        divLastQuestion.appendChild(html)
+    }
+    j = j + 1
 }
 
 
+
+function questionLog(pos, num){ 
+    let p = document.createElement("P");
+    p.classList.add("previous-question"); 
+    let html = `<p>${j + 1}. ${array[pos]}</p`
+    p.innerHTML = html; 
+    return p; 
+
+}
