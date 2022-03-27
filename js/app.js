@@ -75,12 +75,11 @@ questionBtn.onclick = (list) => {
 }
 
 
-
+// AGREGAR PARRAFOS DEBAJO PARA VER PREGUNTAS VIEJAS.
 function questionLog(pos, num){ 
-    let p = document.createElement("P");
-    p.classList.add("previous-question"); 
-    let html = `<p>${j + 1}. ${array[pos]}</p`
-    p.innerHTML = html; 
-    return p; 
-
+    let li = document.createElement("LI");
+    li.classList.add("list-group-item"); 
+    let html = `<li>${array[pos]}</li>`
+    li.innerHTML = html; 
+    return li; 
 }
