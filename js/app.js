@@ -52,6 +52,7 @@ const array = ["¿Que es lo que te gusta hacer para relajar?","¿Alguna cosa chi
 
 var j = 0
 var previousQuestions = []
+var k = 0
 
 let questionBtn = document.querySelector("#question-btn"); 
 questionBtn.onclick = (list) => { 
@@ -67,9 +68,14 @@ questionBtn.onclick = (list) => {
     aux_i = i;
 
     if (j >=  0){
-        let divLastQuestion = document.querySelector("#last-question")
+        let divLastQuestion = document.querySelector  ("#last-question")
         let html = questionLog(aux_i, j)
         divLastQuestion.appendChild(html)
+    }
+
+    if (j==0 && k == 0){
+        document.querySelector("#last-question").insertAdjacentHTML("afterend", '<button id ="questiondelete" type="button" class="list-group-item list-group-item-action list-group-item-danger active" aria-current="true" onclick = "deleteQuestions()" >Borrar Preguntas</button>')
+        k = 1;
     }
     j = j + 1
 }
@@ -82,4 +88,20 @@ function questionLog(pos, num){
     let html = `<li>${array[pos]}</li>`
     li.innerHTML = html; 
     return li; 
+}
+
+//BORRO PREGUNTAS: deleting all childs
+function deleteQuestions(){
+    let root  = document.querySelector("#last-question")
+    deleteAllbyRoot(root)
+    j = 0;
+};
+
+//Hago una función para que me borre todos los childs a partir de un id.
+function deleteAllbyRoot(id){
+    while (id.firstChild){
+        id.removeChild(id.firstChild);
+    }
+    document.querySelector("#questiondelete").remove();
+    k = 0;
 }
