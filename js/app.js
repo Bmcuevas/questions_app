@@ -51,10 +51,13 @@ const array = ["¿Que es lo que te gusta hacer para relajar?","¿Alguna cosa chi
 "¿Hay algo que sea importante para todos y no para vos?"]
 
 var j = 0
-var previousQuestions = []
 var k = 0
-
+var cont = 0
+var contBack = 0
+var backQuestionArray = []
+var backQuestionNumberArray = []
 let questionBtn = document.querySelector("#question-btn"); 
+
 questionBtn.onclick = (list) => { 
     let questionNumber = document.querySelector("#question-number");
     let questionBox = document.querySelector("#question-box")
@@ -64,21 +67,44 @@ questionBtn.onclick = (list) => {
     question = list[i]
     questionBox.textContent = question
     questionNumber.textContent = `Pregunta número ${i}`
-    console.log(j);
     aux_i = i;
 
+    // Hago aparecer las últimas preguntas
     if (j >=  0){
         let divLastQuestion = document.querySelector  ("#last-question")
         let html = questionLog(aux_i, j)
         divLastQuestion.appendChild(html)
     }
 
+    // Hago aparecer el botón para borrar preguntas. 
     if (j==0 && k == 0){
         document.querySelector("#last-question").insertAdjacentHTML("afterend", '<button id ="questiondelete" type="button" class="list-group-item list-group-item-action list-group-item-danger active" aria-current="true" onclick = "deleteQuestions()" >Borrar Preguntas</button>')
         k = 1;
     }
+    
+    // Borro preguntas si supera las 5 en la caja. 
+    if(j>3){
+        let root = document.querySelector("#last-question");
+        root.removeChild(root.firstChild);
+    }
+
     j = j + 1
+
+    // Hago un vector con las preguntas
+    backQuestionArray[cont] = question;
+    backQuestionNumberArray[cont] = i;
+    cont =  cont + 1;
+    contBack = 0;
 }
+
+// question-btn-back.onclick = (backQuestionArray,backQuestionNumberArray) =>{
+//     let questionNumber = document.querySelector("#question-number");
+//     let questionBox = document.querySelector("#question-box");
+//     backQuestionNumberArray.textContent = `Pregunta número ${i}`
+//     questionBox.textContent = backQuestionArray[contBack];
+//     contBack ++;
+
+// }
 
 
 // AGREGAR PARRAFOS DEBAJO PARA VER PREGUNTAS VIEJAS.

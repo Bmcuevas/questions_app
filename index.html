@@ -10,6 +10,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
     <title>Haceme Una Pregunta</title>
   </head>
@@ -19,24 +20,86 @@
         <p class="card-header" id="question-number"></p>
         <div class="card-body">
           <h2 class="question" id="question-box">
-            Hace click en "Siguiente" para ver una pregunta
+            Hace click en "<span class = "my-span">Siguiente</span>" para ver una pregunta
           </h2>
         </div>
       </div>
 
       <div class="buttons">
-        <button class="btn btn-info">+</button>
-        <button id="question-btn" class="btn btn-warning">
-          Siguiente Pregunta
-        </button>
-        <button class="btn btn-info">Like</button>
-        <ol class="list-group list-group-numbered" id="last-question">
-        </ol>
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic mixed styles example">
+          <button class="btn btn-info"><i class="fa fa-solid fa-address-book"></i></button>
+          <button id="question-btn-back" class="btn btn-warning"><i class="fa fa-solid fa-backward"></i></button>
+          <button id="question-btn" class="btn btn-warning"><i class="fa fa-solid fa-forward"></i></button>
+          <button type="button" class="btn btn-danger"><i class="fa fa-solid fa-thumbs-down"></i></button>
+          <button type="button" class="btn btn-success"><i class="fa fa-solid fa-thumbs-up"></i></button>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Modos de Juego
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Preguntas Picantes
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Preguntas de Previa
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Inofensivas: conocer gente
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Solo Ingenieros
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Cultura General
+            </li>
+          </ul>
+          </div>
+        </div>
+      
+      <ul class="list-group">
+       
+
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="false"
+              aria-controls="collapseOne"
+            >
+              Lista de preguntas viejas
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <ol
+                class="list-group list-group-numbered accordion-header"
+                id="last-question"
+              ></ol>
+            </div>
+          </div>
+        </div>
+        </div>
         <!-- <div class="list-group" id = "last-question">
 
         </div> -->
-       
-      </div>
       
 
       <script src="js/app.js"></script>
@@ -46,5 +109,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/252cd76872.js" crossorigin="anonymous"></script>
   </body>
 </html>
