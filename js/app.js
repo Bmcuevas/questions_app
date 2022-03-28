@@ -57,6 +57,7 @@ var contBack = 0
 var backQuestionArray = []
 var backQuestionNumberArray = []
 let questionBtn = document.querySelector("#question-btn"); 
+let questionBtnBack = document.querySelector("#question-btn-back"); 
 
 questionBtn.onclick = (list) => { 
     let questionNumber = document.querySelector("#question-number");
@@ -94,17 +95,23 @@ questionBtn.onclick = (list) => {
     backQuestionArray[cont] = question;
     backQuestionNumberArray[cont] = i;
     cont =  cont + 1;
-    contBack = 0;
+    contBack = 2;
 }
 
-// question-btn-back.onclick = (backQuestionArray,backQuestionNumberArray) =>{
-//     let questionNumber = document.querySelector("#question-number");
-//     let questionBox = document.querySelector("#question-box");
-//     backQuestionNumberArray.textContent = `Pregunta número ${i}`
-//     questionBox.textContent = backQuestionArray[contBack];
-//     contBack ++;
+// FUNCIÓN PARA IR PARA ATRÁS
+questionBtnBack.onclick = () =>{
+    if (cont - contBack < 0){
+        questionNumber.textContent = `Pregunta número ${backQuestionNumberArray[0]}`
+        questionBox.textContent = backQuestionArray[0];
+    }
 
-// }
+    let questionNumber = document.querySelector("#question-number");
+    let questionBox = document.querySelector("#question-box");
+    questionNumber.textContent = `Pregunta número ${backQuestionNumberArray[cont - contBack]}`
+    questionBox.textContent = backQuestionArray[cont-contBack];
+    contBack ++;
+
+}
 
 
 // AGREGAR PARRAFOS DEBAJO PARA VER PREGUNTAS VIEJAS.
